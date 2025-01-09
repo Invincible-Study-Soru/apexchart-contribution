@@ -15,3 +15,6 @@
 # Ignore modified package.json for apexcharts and react-apexcharts
 packages/apexcharts/package.json
 packages/react-apexcharts/package.json
+
+# Node.js dependencies
+node_modules/

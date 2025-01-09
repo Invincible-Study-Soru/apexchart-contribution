@@ -1,11 +1,11 @@
-const terser = require("@rollup/plugin-terser")
-const { babel } = require("@rollup/plugin-babel")
-const { nodeResolve } = require("@rollup/plugin-node-resolve")
+const terser = require("@rollup/plugin-terser");
+const { babel } = require("@rollup/plugin-babel");
+const { nodeResolve } = require("@rollup/plugin-node-resolve");
 
 let pluginOptions = [
   nodeResolve({ browser: true }),
   babel({ exclude: "node_modules/**", babelHelpers: "bundled" }),
-  terser()
+  terser(),
 ];
 
 module.exports = {
@@ -13,15 +13,19 @@ module.exports = {
   output: [
     {
       name: "ReactApexChart",
-      file: "dist/react-apexcharts.iife.min.js",
-      format: "iife",
+      file: "dist/react-apexcharts.min.js",
+      format: "esm",
       globals: {
         react: "React",
         apexcharts: "ApexCharts",
-        "prop-types": "PropTypes"
-      }
-    }
+        "prop-types": "PropTypes",
+      },
+    },
   ],
   external: ["react", "apexcharts", "prop-types"],
-  plugins: pluginOptions
+  watch: {
+    include: ["src/**", "../apexcharts/dist/**"],
+    clearScreen: false,
+  },
+  plugins: pluginOptions,
 };
