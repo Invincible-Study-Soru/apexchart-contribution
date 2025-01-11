@@ -8,7 +8,7 @@
   ],
   "scripts": {
     "add-remote": "./scripts/add-remote.sh",
-    "sync-fork": "./scripts/sync-remote.sh",
+    "sync-remote": "./scripts/sync-remote.sh",
     "start-watch-ref": "./scripts/switch-apexcss.sh ref && yarn workspace react-test dev",
     "start-watch-build": "./scripts/switch-apexcss.sh build && ./scripts/start-watch-build.sh"
   },
