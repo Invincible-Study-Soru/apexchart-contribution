@@ -4254,6 +4254,7 @@ __metadata:
   dependencies:
     concurrently: "npm:^9.0.0"
     lerna: "npm:^8.1.9"
+    replace-in-file: "npm:^8.3.0"
   languageName: unknown
   linkType: soft
 
@@ -5224,6 +5225,13 @@ __metadata:
     ansi-styles: "npm:^4.1.0"
     supports-color: "npm:^7.1.0"
   checksum: 10c0/4a3fef5cc34975c898ffe77141450f679721df9dde00f6c304353fa9c8b571929123b26a0e4617bde5018977eb655b31970c297b91b63ee83bb82aeb04666880
+  languageName: node
+  linkType: hard
+
+"chalk@npm:^5.3.0":
+  version: 5.4.1
+  resolution: "chalk@npm:5.4.1"
+  checksum: 10c0/b23e88132c702f4855ca6d25cb5538b1114343e41472d5263ee8a37cccfccd9c4216d111e1097c6a27830407a1dc81fecdf2a56f2c63033d4dbbd88c10b0dcef
   languageName: node
   linkType: hard
 
@@ -8196,7 +8204,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"glob@npm:^10.2.2, glob@npm:^10.3.10, glob@npm:^10.3.7":
+"glob@npm:^10.2.2, glob@npm:^10.3.10, glob@npm:^10.3.7, glob@npm:^10.4.2":
   version: 10.4.5
   resolution: "glob@npm:10.4.5"
   dependencies:
@@ -13267,7 +13275,6 @@ __metadata:
     "@rollup/plugin-node-resolve": "npm:^15.3.0"
     "@rollup/plugin-terser": "npm:^0.4.4"
     "@types/react": "npm:^18.3.11"
-    apexcharts: "workspace:packages/apexcharts"
     concurrently: "npm:^9.0.1"
     eslint: "npm:^9.12.0"
     eslint-plugin-react: "npm:^7.37.1"
@@ -13302,6 +13309,7 @@ __metadata:
     eslint-plugin-react-refresh: "npm:^0.4.16"
     globals: "npm:^15.14.0"
     react: "npm:^18.3.1"
+    react-apexcharts: "workspace:packages/react-apexcharts"
     react-dom: "npm:^18.3.1"
     typescript: "npm:~5.6.2"
     typescript-eslint: "npm:^8.18.2"
@@ -13380,7 +13388,6 @@ __metadata:
     eslint-plugin-react-refresh: "npm:^0.4.16"
     globals: "npm:^15.14.0"
     react: "npm:^18.3.1"
-    react-apexcharts: "workspace:packages/react-apexcharts"
     react-dom: "npm:^18.3.1"
     typescript: "npm:~5.6.2"
     typescript-eslint: "npm:^8.18.2"
@@ -13649,6 +13656,19 @@ __metadata:
   version: 2.0.0
   resolution: "replace-homedir@npm:2.0.0"
   checksum: 10c0/744820d254c3572abf5e3a4d7920ffae406c408d0acf955a3e67986706ebe587acf264d47009a218c7c96e4f11823fd59e75913782fdbd16c94f3a60b51d5483
+  languageName: node
+  linkType: hard
+
+"replace-in-file@npm:^8.3.0":
+  version: 8.3.0
+  resolution: "replace-in-file@npm:8.3.0"
+  dependencies:
+    chalk: "npm:^5.3.0"
+    glob: "npm:^10.4.2"
+    yargs: "npm:^17.7.2"
+  bin:
+    replace-in-file: bin/cli.js
+  checksum: 10c0/0862e36112c06be39ff2bb1f3448dc976adc89d1d80ca6613b4410683e62338fd83d69c2d291065d7603bd1361e52ff672406eeea2e38309b9368a8f6fcad7c0
   languageName: node
   linkType: hard
 

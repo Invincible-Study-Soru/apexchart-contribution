@@ -23,9 +23,5 @@ module.exports = {
     },
   ],
   external: ["react", "apexcharts", "prop-types"],
-  watch: {
-    include: ["src/**", "../apexcharts/dist/**"],
-    clearScreen: false,
-  },
   plugins: pluginOptions,
 };
