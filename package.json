@@ -8,17 +8,13 @@
   ],
   "scripts": {
     "add-remote": "./scripts/add-remote.sh",
-    "sync-fork": "./scripts/sync-fork.sh",
-    "package-change-watch": "./shell/package-change-watch.sh",
-    "run-with-watch": "yarn package-change-watch && yarn run",
-    "dev:apexcharts": "yarn workspace apexcharts dev",
-    "dev:react-apexcharts": "yarn workspace react-apexcharts watch",
-    "dev": "concurrently \"yarn dev:apexcharts\" \"yarn dev:react-apexcharts\"",
-    "run": "yarn workspace react-test dev",
-    "test run": "yarn workspace react-deploy dev"
+    "sync-fork": "./scripts/sync-remote.sh",
+    "start-watch-ref": "./scripts/switch-apexcss.sh ref && yarn workspace react-test dev",
+    "start-watch-build": "./scripts/switch-apexcss.sh build && ./scripts/start-watch-build.sh"
   },
   "devDependencies": {
     "concurrently": "^9.0.0",
-    "lerna": "^8.1.9"
+    "lerna": "^8.1.9",
+    "replace-in-file": "^8.3.0"
   }
 }
