@@ -8,6 +8,7 @@
   ],
   "scripts": {
     "add-remote": "./scripts/add-remote.sh",
+    "update-skip-worktree": "./scripts/update-skip-worktree.sh",
     "sync-upstream": "./scripts/sync-upstream.sh",
     "start-watch-ref": "./scripts/switch-apexcss.sh ref && yarn workspace react-test dev",
     "start-watch-build": "./scripts/switch-apexcss.sh build && ./scripts/start-watch-build.sh",
