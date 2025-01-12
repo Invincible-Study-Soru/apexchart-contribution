@@ -5,13 +5,3 @@ node_modules/
 !.yarn/sdks
 !.yarn/versions
 .pnp.*
-
-# apexcharts ignores
-packages/apexcharts/package.json
-packages/apexcharts/dist
-packages/apexcharts/webpack.config.js
-
-# react-apexcharts ignores
-packages/react-apexcharts/package.json
-packages/react-apexcharts/dist
-packages/react-apexcharts/rollup.config.js
