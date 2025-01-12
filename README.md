@@ -29,7 +29,7 @@ yarn start-watch-build
 #### 5. Create a Pull Request
 
 - Create a PR to the `main` branch (for code review, **"🚨 do not merge 🚨"**)
-- Finalize the tasks after addressing review comments
+- Finalize the tasks by reflecting the code review feedback
 
 #### 6. Subtree Push
 
