@@ -28,7 +28,7 @@ const Chart3 = () => {
                     expandOnClick: true,
                     donut:{
                         size: '30%',
-                        //thickness: [0.5, 1, 0.7, 0.8, 0.2],
+                        thickness: [0.5, 1, 0.7, 0.8, 0.2],
                     }
                 }
             },
