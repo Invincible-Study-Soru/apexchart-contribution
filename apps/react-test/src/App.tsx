@@ -1,59 +1,34 @@
-import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
 import "./App.css";
-import Chart from "react-apexcharts";
+import { ReactNode, useState } from "react";
+import Chart1 from "./chart/chart1";
+import Chart2 from "./chart/chart2";
 
 function App() {
-  const [count, setCount] = useState(0);
-
-  const chartOptions = {
-    chart: {
-      id: "basic-bar",
-    },
-    xaxis: {
-      categories: [1991, 1992, 1993, 1994, 1995, 1996, 1997],
-    },
+  const [demo, setDemo] = useState<string | undefined>(undefined);
+  const demoList: { [key: string]: ReactNode } = {
+    "#1": <Chart1 />,
+    "#2": <Chart2 />
   };
 
-  const chartSeries = [
-    {
-      name: "series-1",
-      data: [30, 40, 35, 50, 49, 60, 70],
-    },
-  ];
-
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <div className="page">
+      <div className="buttonGroup">
+        {Object.keys(demoList).map((issueNum) => (
+          <button
+            key={issueNum}
+            onClick={() => setDemo(issueNum)}
+            className={`button ${demo === issueNum ? "active" : ""}`}
+          >
+            Issue {issueNum}
+          </button>
+        ))}
       </div>
-      <h1>React-Test</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <div className="chart">
-        <Chart
-          options={chartOptions}
-          series={chartSeries}
-          type="bar"
-          width="500"
-        />
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+      {demo ? (
+        <div className="chartWrapper">{demoList[demo]}</div>
+      ) : (
+        "이슈 번호를 선택해주세요"
+      )}
+    </div>
   );
 }
 
