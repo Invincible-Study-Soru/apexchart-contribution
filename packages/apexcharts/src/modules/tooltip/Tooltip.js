@@ -465,10 +465,6 @@ export default class Tooltip {
       }
     }
 
-    if (ttCtx.fixedTooltip) {
-      ttCtx.drawFixedTooltipRect()
-    }
-
     if (w.globals.axisCharts) {
       ttCtx.axisChartsTooltips({
         e,
@@ -478,11 +474,14 @@ export default class Tooltip {
     } else {
       // non-plot charts i.e pie/donut/circle
       ttCtx.nonAxisChartsTooltips({
-        ttCtx,
         e,
         opt,
         tooltipRect: ttCtx.tooltipRect,
       })
+    }
+
+    if (ttCtx.fixedTooltip) {
+      ttCtx.drawFixedTooltipRect()
     }
   }
 
@@ -619,7 +618,7 @@ export default class Tooltip {
   }
 
   // tooltip handling for pie/donuts
-  nonAxisChartsTooltips({ ttCtx, e, opt, tooltipRect }) {
+  nonAxisChartsTooltips({ e, opt, tooltipRect }) {
     let w = this.w
     let rel = opt.paths.getAttribute('rel')
 
@@ -637,13 +636,11 @@ export default class Tooltip {
         shared: false,
       })
 
-      if (!ttCtx.fixedTooltip) {
-        let x = w.globals.clientX - seriesBound.left - tooltipRect.ttWidth / 2
-        let y = w.globals.clientY - seriesBound.top - tooltipRect.ttHeight - 10
+      let x = w.globals.clientX - seriesBound.left - tooltipRect.ttWidth / 2
+      let y = w.globals.clientY - seriesBound.top - tooltipRect.ttHeight - 10
 
-        tooltipEl.style.left = x + 'px'
-        tooltipEl.style.top = y + 'px'
-      }
+      tooltipEl.style.left = x + 'px'
+      tooltipEl.style.top = y + 'px'
 
       if (w.config.legend.tooltipHoverFormatter) {
         let legendFormatter = w.config.legend.tooltipHoverFormatter
