@@ -465,10 +465,6 @@ export default class Tooltip {
       }
     }
 
-    if (ttCtx.fixedTooltip) {
-      ttCtx.drawFixedTooltipRect()
-    }
-
     if (w.globals.axisCharts) {
       ttCtx.axisChartsTooltips({
         e,
@@ -482,6 +478,10 @@ export default class Tooltip {
         opt,
         tooltipRect: ttCtx.tooltipRect,
       })
+    }
+
+    if (ttCtx.fixedTooltip) {
+      ttCtx.drawFixedTooltipRect()
     }
   }
 
