@@ -1,23 +1,22 @@
 {
-      "name": "apexchart-contribution",
-      "packageManager": "yarn@4.6.0",
-      "private": true,
-      "workspaces": [
-        "packages/*",
-        "apps/*"
-      ],
-      "scripts": {
-        "reinit": "yarn add-remote && yarn update-skip-worktree && rm -rf packages/apexcharts/yarn.lock && yarn install",
-        "add-remote": "./scripts/add-remote.sh",
-        "update-skip-worktree": "./scripts/update-skip-worktree.sh",
-        "sync-upstream": "./scripts/sync-upstream.sh",
-        "start-watch-ref": "yarn workspace react-test dev",
-        "start-watch-build": "./scripts/start-watch-build.sh",
-        "subtree-push": "./scripts/subtree-push.sh"
-      },
-      "devDependencies": {
-        "concurrently": "^9.0.0",
-        "replace-in-file": "^8.3.0"
-      }
-    }
-        
+  "name": "apexchart-contribution",
+  "packageManager": "yarn@4.6.0",
+  "private": true,
+  "workspaces": [
+    "packages/*",
+    "apps/*"
+  ],
+  "scripts": {
+    "reinit": "yarn add-remote && yarn update-skip-worktree && rm -rf packages/apexcharts/yarn.lock && yarn install",
+    "add-remote": "./scripts/add-remote.sh",
+    "update-skip-worktree": "./scripts/update-skip-worktree.sh",
+    "sync-upstream": "./scripts/sync-upstream.sh",
+    "start-watch-ref": "yarn workspace react-test dev",
+    "start-watch-build": "./scripts/start-watch-build.sh",
+    "subtree-push": "./scripts/subtree-push.sh"
+  },
+  "devDependencies": {
+    "concurrently": "^9.0.0",
+    "replace-in-file": "^8.3.0"
+  }
+}

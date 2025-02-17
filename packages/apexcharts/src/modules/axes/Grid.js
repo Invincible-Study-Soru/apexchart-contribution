@@ -88,10 +88,10 @@ class Grid {
     gl.dom.elNonForecastMask = createClipPath(`nonForecastMask${gl.cuid}`)
 
     gl.dom.elGridRect = graphics.drawRect(
-      0,
-      0,
-      gl.gridWidth,
-      gl.gridHeight,
+      -strokeSize / 2 - 2,
+      -strokeSize / 2 - 2,
+      gl.gridWidth + strokeSize + 4,
+      gl.gridHeight + strokeSize + 4,
       0,
       '#fff'
     )
