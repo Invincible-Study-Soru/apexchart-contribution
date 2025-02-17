@@ -2,12 +2,14 @@ import "./App.css";
 import { ReactNode, useState } from "react";
 import Chart1 from "./chart/chart1";
 import Chart2 from "./chart/chart2";
+import Chart3 from "./chart/chart3";
 
 function App() {
   const [demo, setDemo] = useState<string | undefined>(undefined);
   const demoList: { [key: string]: ReactNode } = {
     "#1": <Chart1 />,
-    "#2": <Chart2 />
+    "#2": <Chart2 />,
+    "#3": <Chart3 />,
   };
 
   return (
