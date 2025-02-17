@@ -153,6 +153,9 @@ export default class AxesUtils {
 
     if (w.config.xaxis.labels.hideOverlappingLabels && drawnLabels.length > 0) {
       const prev = drawnLabelsRects[drawnLabelsRects.length - 1]
+      if (w.config.xaxis.labels.trim && w.config.xaxis.type !== 'datetime') {
+        return label
+      }
       if (
         label.x <
         prev.textRect.width /
@@ -175,16 +178,15 @@ export default class AxesUtils {
     }
     return labels
   }
-  
+
   yAxisAllSeriesCollapsed(index) {
     const gl = this.w.globals
 
     return !gl.seriesYAxisMap[index].some((si) => {
       return gl.collapsedSeriesIndices.indexOf(si) === -1
     })
-    
   }
-  
+
   // Method to translate annotation.yAxisIndex values from
   // seriesName-as-a-string values to seriesName-as-an-array values (old style
   // series mapping to new style).
@@ -193,8 +195,8 @@ export default class AxesUtils {
     const gl = w.globals
     const yaxis = w.config.yaxis
     let newStyle =
-          gl.series.length > yaxis.length
-          || yaxis.some((a) => Array.isArray(a.seriesName))
+      gl.series.length > yaxis.length ||
+      yaxis.some((a) => Array.isArray(a.seriesName))
     if (newStyle) {
       return index
     } else {
@@ -206,8 +208,7 @@ export default class AxesUtils {
     const w = this.w
     const yaxis = w.config.yaxis[index]
 
-    if (!yaxis.show || this.yAxisAllSeriesCollapsed(index) 
-    ) {
+    if (!yaxis.show || this.yAxisAllSeriesCollapsed(index)) {
       return true
     }
     if (!yaxis.showForNullSeries) {
