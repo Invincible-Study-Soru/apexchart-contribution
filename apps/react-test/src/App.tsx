@@ -2,6 +2,7 @@ import "./App.css";
 import { ReactNode, useState } from "react";
 import Chart1 from "./chart/chart1";
 import Chart2 from "./chart/chart2";
+import Chart4 from "./chart/chart4";
 import Chart3 from "./chart/chart3";
 
 function App() {
@@ -10,6 +11,7 @@ function App() {
     "#1": <Chart1 />,
     "#2": <Chart2 />,
     "#3": <Chart3 />,
+    "#4": <Chart4 />,
   };
 
   return (
