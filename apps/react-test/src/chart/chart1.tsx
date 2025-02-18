@@ -62,7 +62,7 @@ const Chart1 = () => {
               const age = fullChartData.find(
                 (item) => item.year === Number(value)
               )?.age;
-              if (age) return [`(${age}세)`, value];
+              if (age) return [`(${age})`, value];
               else return [value, ""];
             },
           },
@@ -87,7 +87,7 @@ const Chart1 = () => {
       series={[
         {
           type: "bar",
-          name: "예상 월 연금수령액",
+          name: "Expected Monthly Pension",
           color: "#FB596C",
           data: fullChartData.map((item) => ({
             x: item.year,
@@ -249,41 +249,25 @@ const fullChartData = [
   },
 ];
 
-const formatPrice = (
-  price: number | undefined | null,
-  isMaxUnderHundredMillion?: boolean
-) => {
+const formatPrice = (price: number | undefined | null) => {
   if (price === undefined || price === null) return "";
-  if (price === 0) return "0원";
+  if (price === 0) return "$0";
 
-  const absPrice = Math.abs(price); //음수인 경우 절대값 계산
+  const absPrice = Math.abs(price); // 음수인 경우 절대값 계산
+  const sign = price < 0 ? "-" : "";
 
-  if (isMaxUnderHundredMillion) {
-    const billionUnit = 100000000;
-    const priceInHundredMillion = absPrice / billionUnit;
-    const formattedPrice = priceInHundredMillion.toLocaleString(undefined, {
+  if (absPrice >= 1_000_000) {
+    return `${sign}${(absPrice / 1_000_000).toLocaleString(undefined, {
       minimumFractionDigits: 1,
       maximumFractionDigits: 1,
-    });
-
-    return `${price < 0 ? "-" : ""}${formattedPrice}억 원`;
+    })}M`;
   }
 
-  const hundredMillion = Math.floor(absPrice / 100000000);
-  const tenThousand = Math.floor((absPrice % 100000000) / 10000);
-  const rest = absPrice % 10000;
+  if (absPrice >= 1_000) {
+    return `${sign}${(absPrice / 1_000).toLocaleString(undefined, {
+      maximumFractionDigits: 0,
+    })}K`;
+  }
 
-  const tokens = [
-    hundredMillion ? `${hundredMillion.toLocaleString()}억` : "",
-    tenThousand ? `${tenThousand.toLocaleString()}만` : "",
-    //rest ? `${rest.toFixed(0)}` : '',
-  ].filter(Boolean);
-  const result = `${
-    tokens.length === 0
-      ? rest
-        ? `${rest.toLocaleString()}`
-        : "0"
-      : tokens.join(" ")
-  }원`;
-  return `${price < 0 ? "-" : ""}${result}`;
+  return `${sign}$${absPrice.toLocaleString()}`;
 };
